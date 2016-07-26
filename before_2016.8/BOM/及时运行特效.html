@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<textarea id="txt1" cols="50" rows="25"></textarea>
+	<input id="btn1" type="button" value="运行"/>
+</body>
+<script>
+	window.onload = function () {
+		var oBtn = document.getElementById('btn1');
+		// 应为本身浏览器就是window 所以一直可以省略window
+		var oTxt = window.document.getElementById('txt1');
+
+		oBtn.onclick = function () {
+			var oNewWin = window.open('about:blank');
+			oNewWin.document.write(oTxt.value);
+		}
+	};
+</script>
+</html>

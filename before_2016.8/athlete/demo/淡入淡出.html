@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片淡入淡出</title>
+</head>
+<style>
+	#img1{width:500px;height:330px;position:absolute;top:100px;left:100px;border:2px solid #696;opacity:100;}
+	#btn1{width:100px;height:50px;position:absolute;top:25px;left:50px;color:blue;font-size:30px;cursor:pointer;}
+</style>
+<body>
+	<img src="./pic/test.jpg" id="img1"/>
+	<input type="button" value="in" id="btn1"/>
+</body>
+<script>
+window.onload = function () {
+	// var oBtn = document.getElementById('btn1');
+	// if(oBtn.value = 'in') {
+	// 	oBtn.onclick = function () {
+	// 		startChange(100);
+	// 		oBtn.value = 'out';
+	// 	};
+	// }else{
+	// 	oBtn.onclick = function () {
+	// 		startChange(100);
+	// 		oBtn.value = 'in';
+	// 	};
+	// }
+	var oImg = document.getElementById('img1');
+	oImg.onmouseover = function () {
+		startChange(10);
+	};
+	oImg.onmouseout = function () {
+		startChange(100);
+	};
+};
+
+
+var timer = null;
+var alpha = 100;
+
+function startChange(iTarget) {
+	
+	var oImg = document.getElementById('img1');
+
+	clearInterval(timer);
+	timer = setInterval(function () {
+
+		var iSpeed = 0;
+		
+		if(iTarget > alpha) {
+			iSpeed = 1;
+		}else{
+			iSpeed = -1;
+		}
+		if(iTarget == alpha) {
+			clearInterval(timer);
+		}else{
+			alpha += iSpeed;
+			oImg.style.filter = 'alpha(opacity:'+alpha+')';
+			oImg.style.opacity = alpha/100;
+
+			document.title = alpha;
+		}
+		// oImg.style.opacity = eval(oImg.style.opacity)+iSpeed;
+	},30);
+}
+</script>
+</html>

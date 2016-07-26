@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>运动---1</title>
+</head>
+<style>
+	#div1{width:100px;height:80px;border:2px solid #696; background:#ccc;position:absolute;left:0px;top:100px;}
+	span{width:1px;height:500px;background:black;position:absolute;top:0;left:300px;}
+	#btn1{cursor:pointer;}
+</style>
+<body>
+<input type="button" value="匀速运动" id="btn1" onclick="startMove(300)">
+<div id="div1"></div>
+<span></span>
+</body>
+<script>
+// 匀速运动
+var timer = null;
+
+function startMove(iTarget) {
+
+	var oDiv = document.getElementById('div1');
+	var oBtn = document.getElementById('btn1');
+
+	// 解决多次点击速度加快的问题
+	clearInterval(timer);
+
+	timer = setInterval(function () {
+
+/*		if(oDiv.offsetLeft < iTarget) {
+			iSpeed = 5;
+		}else{
+			iSpeed = -5;
+		}
+*/
+		var iSpeed = oDiv.offsetLeft<iTarget?5:-5;
+
+		if(Math.abs(oDiv.offsetLeft-iTarget)<5) {
+			clearInterval(timer);
+			oDiv.style.left = iTarget+'px';
+			// 解决 停止了点击还会运动的问题
+		} else {
+		oDiv.style.left = oDiv.offsetLeft+iSpeed+'px';}
+	},30); // 注意：定时器的时间就保留30 运动起来不卡
+}
+</script>
+</html>

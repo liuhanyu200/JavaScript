@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax test</title>
+</head>
+<style>
+	#div1{width:120px;height:80px;background:#ccc;border:2px solid #696;}
+</style>
+<body>
+<a href="javascript:;" id="a1">读取数据</a>
+<div id="div1"></div>
+<script src="ajax.js"></script>
+<script>
+	window.onload = function () {
+		var oA = document.getElementById('a1');
+		var oDiv = document.getElementById('div1');
+
+		oA.onclick = function () {
+			//通过 new Date()来解决缓存问题
+			// ../ 上级路径 路径是相对于当前页面的路径
+			ajax('./source/p1.txt?t='+new Date().getTime(),function (str) {
+				oDiv.innerHTML = str;
+				console.log(str);
+				console.log(eval(str));
+				var ss = eval(str);
+				console.log(ss[0].a);
+			},function () {
+				console.log('faild');
+			});
+		};
+	};
+</script>	
+</body>
+</html>

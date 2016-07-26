@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+</head>
+<style>
+	#div1{width:100px;height:100px;background:black;position:absolute;border-radius:5px;box-shadow:5px 5px 3px #ccc;}
+</style>
+<body>
+	<div id="div1"></div>
+</body>
+<script>
+/*	(function () {
+
+	})();*/
+	window.onload = function () {
+		var oDiv = document.getElementById('div1');
+		var disX = 0;
+		var disY = 0;
+
+		oDiv.onmousedown = function (ev) {
+			var oEvent = ev||event;
+
+			disX = oEvent.clientX - oDiv.offsetLeft;
+			disY = oEvent.clientY - oDiv.offsetTop;
+
+			// 移动太快鼠标出去了就不再执行
+			// oDiv.onmousemove = function (ev) {
+			// 所以在 document上加载这个事件
+			document.onmousemove = function (ev) {
+				var oEvent = ev||event;
+				var l = oEvent.clientX-disX;
+				var t = oEvent.clientY-disY;
+				var cc = document.documentElement.clientWidth-oDiv.offsetWidth;
+				var hh = document.documentElement.clientHeight-oDiv.offsetHeight;
+
+				// 上下左右都拖不出去了
+				if(l<0) {
+					l = 0;
+				}else if(l>cc) {
+					l = cc;
+				}
+
+				if(t<0) {
+					t = 0;
+				}else if(t>hh) {
+					t = hh;
+				}
+
+				oDiv.style.left = l+'px';
+				oDiv.style.top = t+'px';
+
+			};
+
+			document.onmouseup = function () {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			};
+
+			// 阻止低版本火狐默认拖拽事件
+			return false;
+		};
+	};
+</script>
+</html>

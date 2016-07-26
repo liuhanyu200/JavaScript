@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn1" value="创建li">
+	<ul id="ul1"></ul>
+</body>
+<script>
+	window.onload = function() {
+		var oBtn = document.getElementById('btn1');
+		var oUl = document.getElementById('ul1');
+
+		oBtn.onclick = function() {
+			var oLi = document.createElement('li');
+
+			// 父级.appendChild(子节点)
+			oUl.appendChild(oLi);
+		}
+	}
+</script>
+</html>

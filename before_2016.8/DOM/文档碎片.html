@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input id="btn1" type="button" value="测试1">
+<input id="btn2" type="button" value="碎片1">
+<ul id="ul1"></ul>
+<script>
+	window.onload = function () {
+		var oBtn1 = document.getElementById('btn1');
+		var oBtn2 = document.getElementById('btn2');
+		var oUl = document.getElementById('ul1');
+		//var i = 0;
+		//var startTime = new Date().getTime();
+
+		oBtn1.onclick = function () {
+			var startTime = new Date().getTime();
+			var i = 0;
+			for (i=0;i<100000;i++) {
+				var oLi = document.createElement('li');
+				oUl.appendChild(oLi);
+			}
+			alert(new Date().getTime()-startTime);
+		}
+
+		// 文档碎片（火狐100000次1s，Google,ie不定）
+		// 
+		oBtn2.onclick = function () {
+
+			var startTime = new Date().getTime();
+			var oFrag = document.createDocumentFragment();
+			var i = 0;
+
+			for (i=0;i<100000;i++) {
+				var oLi = document.createElement('li');
+				//先打包
+				oFrag.appendChild(oLi);
+			}
+
+			oUl.appendChild(oFrag);
+
+			alert(new Date().getTime()-startTime);
+		}
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>缓冲运动---1</title>
+</head>
+<style>
+	#div1{width:100px;height:80px;border:2px solid #696; background:#ccc;position:absolute;left:0;top:100px;}
+	#sp1{width:1px;height:500px;background:black;position:absolute;left:300px;top:0;}
+</style>
+<body>
+<input type="button" value="begin" id="btn1" onclick="startMove(300)">
+<div id="div1"></div>
+<span id="sp1"></span>
+</body>
+<script>
+// 匀速运动
+var timer = null;
+
+function startMove(iTarget) {
+
+	var oDiv = document.getElementById('div1');
+	var oBtn = document.getElementById('btn1');
+
+	// 解决多次点击速度加快的问题
+	clearInterval(timer);
+
+	timer = setInterval(function () {
+
+		var iSpeed = (iTarget-oDiv.offsetLeft)/20;
+
+			// 三目运算符 替代 if else
+			iSpeed = iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+
+		// 缓冲运动会恰好运动到指定位置 so == 
+		if(oDiv.offsetLeft == iTarget) {
+			clearInterval(timer);
+
+			// 解决 停止了点击还会运动的问题
+		} else {
+			oDiv.style.left = oDiv.offsetLeft+iSpeed+'px';
+			// document.title = iSpeed;
+			// Math.ceil(0.1); // 1
+			// Math.floor(0.1); // 0  
+			document.title = '距离最左边'+oDiv.offsetLeft+'speed:'+iSpeed;
+		}
+	},30); // 注意：定时器的时间就保留30 运动起来不卡
+}
+</script>
+</html>

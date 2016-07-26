@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>air</title>
+</head>
+<style>
+	#div1{width:60px;height:60px;border-radius:5px;position:absolute;bottom:0;left:200px;background:#ccc;}
+	body{background:black;}
+</style>
+<body>
+	<div id="div1"></div>
+</body>
+<script>
+	document.onkeydown = function (ev) {
+		var oEvent = ev||event;
+		var oDiv = document.getElementById('div1');
+		// zuo 37  you 39  shang 38 xia 40
+		if(oEvent.keyCode == 37) {
+			oDiv.style.left = oDiv.offsetLeft-10+'px';
+		}else if(oEvent.keyCode == 39) {
+			oDiv.style.left = oDiv.offsetLeft+10+'px';
+		}else if(oEvent.keyCode == 38) {
+			//
+		}
+	};
+</script>
+</html>

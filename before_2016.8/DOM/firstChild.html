@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li></li>
+		<li></li>
+		<li id="li1">111</li>
+		<li></li>
+	</ul>
+</body>
+<script>
+	window.onload = function () {
+		var oUl = document.getElementById('ul1');
+		var oLi = document.getElementById('li1');
+		// IE 
+		// oUl.firstChild.style.background='red';
+		
+		// FF
+		// oUl.firstElementChild.style.background='red';
+		
+		var oFirst = oUl.firstElementChild||oUl.firstChild;
+		var oPre = oLi.previousElementSibling||oLi.previousSibling;
+		var oNext = oLi.nextElementSibling||oLi.nextSibling;
+
+		// 为什么把兼容火狐的放到后面就会出问题，放兼容ie的就不会出问题
+		// var oNext1 = oLi.nextSibling||oLi.nextElementSibling;
+
+		oFirst.style.background='red';
+		oNext.style.background='blue';
+		oPre.style.background='yellow';
+	}
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str = 'abcdef';
+    // 切片 slice(开始位置,结束位置)
+    // 不取结束位置
+    console.log(str.slice(1,3)); // bc
+    // 不给结束位置 则一直取到最后一个
+    console.log(str.slice(3)); // def
+    console.log(str.substring(1,3)); // bc
+    console.log(str.substring(3)); //def
+
+    // 区别 ---
+    console.log(str.substring(0,-3)); // 负数会变成0
+    console.log(str.slice(0,-3)); // 负数会直接变成倒数第几个
+
+    // subStr 包含结束位置  substring 包含结束位置
+    console.log(str.substr(1,3));
+    console.log(str.substring(1,3));
+
+</script>
+</body>
+</html>

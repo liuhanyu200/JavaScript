@@ -1,0 +1,47 @@
+event对象和事件冒泡：
+
+前言：一般情况下，没有内容的话，body是撑不起来的，缩成一条线。
+
+用来获取事件的详细信息：鼠标位置，键盘按键
+例子：获取鼠标位置：clientX
+document 的本质：document.childNodes[0].tagName
+document是页面第一行上面的一个虚拟父节点<document>
+阻止事件冒泡：自定义的下拉列表都要用到：Google翻译
+
+鼠标事件：
+clientX , clientY 说的是网页可视区的坐标
+scrollTop 滚动区的高度
+var scrollTop = document.documentElement.scrollTop||document.body.scrollTop
+ 
+
+键盘事件：
+onclick = onmousedown(按下鼠标) + onmouseup(抬起)
+onpress = onkeydown(按下键盘) + onkeyup（键抬起）
+ keyCode:键值
+左右键自动翻页
+ctrlKey shiftKey altKey 
+按住ctrl shift alt的事件
+
+默认行为：
+不需要我们编写，浏览器自备的一些功能。
+阻值默认行为：
+只要是浏览器自带的行为都可以阻止
+页面中点击右键出现菜单---浏览器默认行为
+
+onmousedown:存储距离
+onmousemove:根据距离，计算div最新位置
+onmouseup: 清空事件
+
+阻止默认行为来解决bug 
+
+clientWidth:可视区的宽度
+
+
+
+
+
+
+
+
+
+

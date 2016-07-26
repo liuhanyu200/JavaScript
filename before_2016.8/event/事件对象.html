@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event---1</title>
+</head>
+<style>
+	body{border:1px solid red;}
+</style>
+<body>
+<script>
+	window.onload = function () {
+		/**
+		 * document 是什么？ 一个节点
+		 * childNodes[1] // HTML
+		 * document是页面第一行上面（最顶层）的一个虚拟父节点<document>
+		 */
+		document.onclick = function (ev) {
+			// event FF is not defined
+			// alert('您点的都是document');
+			if (ev) {
+				document.title = ev.clientX+','+ev.clientY;
+			}else{
+				document.title = event.clientX+','+event.clientY;
+				// alert(event.clientX);
+			}
+		};
+	};
+</script>
+</body>
+</html>

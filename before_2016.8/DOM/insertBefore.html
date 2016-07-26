@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt1">
+	<input type="button" id="btn1" value="创建li">
+	<ul id="ul1"></ul>
+</body>
+<script>
+	window.onload = function() {
+		var oBtn = document.getElementById('btn1');
+		var oUl = document.getElementById('ul1');
+		var oTxt = document.getElementById('txt1');
+		var aLi = document.getElementsByTagName('li');
+
+		oBtn.onclick = function() {
+			var oLi = document.createElement('li');
+			oLi.innerHTML = oTxt.value;
+			//oUl.appendChild(oLi);
+
+			//如何把元素查到前面 insertBefore(插入什么,在什么位置插)
+			// 检测有没第一个li
+			if (aLi.length == 0) {
+				oUl.appendChild(oLi);
+			} else {
+			oUl.insertBefore(oLi,aLi[0]);
+			}
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>num</title>
+</head>
+<body>
+<input type="text" id="txt1" />	
+</body>
+<script>
+	(function () {
+		var oTxt = document.getElementById('txt1');
+		oTxt.onkeydown = function (ev) {
+			var oEvent = ev||event;
+			// 0-9   keyCode  48-57
+			if(oEvent.keyCode != 8 && (oEvent.keyCode<48||oEvent.keyCode>57)) {
+				return false;
+			}
+		};
+	})();
+</script>
+</html>

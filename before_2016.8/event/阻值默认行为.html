@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>默认行为</title>
+</head>
+<body>
+	<form action="http://www.baidu.com" id="form1">
+		<input type="submit">
+	</form>
+	<input type="text" id="txt1">
+</body>
+<script>
+	(function () {
+		var oTxt = document.getElementById('txt1');
+		oTxt.onkeydown = function () {
+			// 阻止文本框输入的默认事件
+			return false;
+		};
+	})();
+
+	(function () {
+		var oForm = document.getElementById('form1');
+
+		// 阻止表单提交的默认事件
+		// 表单校验就是这么来的
+		oForm.onsubmit = function () {
+			return false;
+		};
+
+	})();
+
+	document.oncontextmenu = function () {
+		return false; // 组织默认行为 取消右键菜单
+	};
+	
+</script>
+</html>

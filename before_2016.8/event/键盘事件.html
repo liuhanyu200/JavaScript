@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+</head>
+<body>
+<script>
+	document.onkeydown = function (ev) {
+		var oEvent = ev||event;
+
+		console.log(oEvent.keyCode);
+	};
+</script>
+</body>
+</html>

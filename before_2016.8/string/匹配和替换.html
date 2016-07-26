@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str = '12,456 rt  77 // 799';
+     //正则 匹配match
+    // 从字符串里提取数组
+    console.log(str.match(/\d+/g));
+
+    // replace('查找项','替换项'); 查找替换
+    console.log(str.replace('7','abc')); // 实际只替换了第一个？
+</script>
+</body>
+</html>
