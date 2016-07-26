@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery导航</title>
+	<style>
+		ul,li{list-style:none;display:block;}
+		.box{
+			position: absolute;
+		    height: 100%;
+		    width: 200px;
+		    background-color: #ffffff;
+		    border-right: 1px solid #c3ccd6;
+		    overflow-y: auto;
+		}
+		.menu{
+			margin: 0;
+		    padding: 0;
+		    list-style: none;
+		    margin-top: 21px;
+		}
+		.menu > li {
+		    position: relative;
+		    border-bottom: 1px solid #dee6ef;
+		    border-top: 1px solid #dee6ef;
+		    margin-top: -1px;
+		}
+		body {
+		    color: #212121;
+		    background-color: #eef1f3;
+		    font-family: Tahoma, "微软雅黑", Microsoft YaHei, "宋体", SimSun, sans-serif;
+		    font-size: 14px;
+		    line-height: 18px;
+		}
+		.current{
+			background:#ccc;
+			display: block;
+		}
+		.level1 > a{
+			display: block;
+		}
+		.level2 > li{
+			/*display: none;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul class="menu">
+
+			<li class="level1">
+				<a href="#none">衬衫</a>
+				<ul class="level2">
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+				</ul>
+			</li>
+
+			<li class="level1">
+				<a href="#none">卫衣</a>
+				<ul class="level2">
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+				</ul>
+			</li>
+
+			<li class="level1">
+				<a href="#none">裤子</a>
+				<ul class="level2">
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+					<li><a href="#none">卫衣001</a></li>
+				</ul>
+			</li>		
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script>
+	$(".level1 > a").click(function(){
+		$(this).addClass("current").next().show().parent().siblings().children("a").removeClass("current").next().hide();
+		return false;
+	});
+</script>
+
+</html>

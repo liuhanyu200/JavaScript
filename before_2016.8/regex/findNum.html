@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+	/**
+	 * search返回一个起始位置，只返回第一个位置
+	 * 如果查找不到则返回-1
+	 */
+	(function () {
+		var str = 'abcdefghijccckccc';
+		console.log(str.search('c')); // 2
+		console.log(str.search('5')); // -1
+	})();
+
+	/**
+	 * substring  截取字符串，不包含结束位置
+	 * 若只给一个参数，则从该位置取到字符串结束
+	 */
+	(function () {
+		var str = 'hdfsdafiajio';
+		console.log(str.substring(1,4)); // dfs
+		console.log(str.substring(3)); // sdafiajio
+	})();
+
+	/**
+	 * 查找某个确切位置的字符
+	 */
+	(function () {
+		var str = 'hdfsdafiajio';
+		console.log(str.charAt(1)); // d
+	})();
+
+	/**
+	 * 字符串切片，切成数组
+	 */
+	(function () {
+		var str = 'hd-fs-daf-iaji-o';
+		console.log(str.split('-')); // ["hd", "fs", "daf", "iaji", "o"]
+		var arr = str.split('-');
+		console.log(arr[2]); // daf
+	})();
+
+</script>
+<script src="test.js"></script>
+</html>

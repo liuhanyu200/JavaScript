@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // local 输入法设置和本地比较
+    var str1 = 'abc';
+    var str2 = 'def';
+
+    // 字符串比较---只能比较英文
+    console.log(str1 < str2);
+
+    // 比较 中文
+    var str3 = '鱼松'; // &#x9C7C;&#x677E;
+    var str4 = '江一帆'; // &#x6C5F;&#x4E00;&#x5E06;
+
+    // false str3 > str4 这个是按照9C7C || 6C5F比较的
+    console.log(str3<str4);
+
+    // localCompare();---按照当地人（字符串的语言）的习惯
+    // -1 说明第一个比第二个小 按照拼音来排序
+    console.log(str1.localeCompare(str2));
+
+</script>
+</body>
+</html>

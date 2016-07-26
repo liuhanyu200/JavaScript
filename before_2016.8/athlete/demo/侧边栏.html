@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>侧边栏弹出 示例</title>
+</head>
+<style>
+	#div1{width:100px;height:200px;background:#ccc;position:absolute;left:-100px;top:60px;}
+	#div1 span{width:20px;height:70px;background:#696;position:absolute;border-radius:3px;left:100px;top:65px;}
+</style>
+<body>
+	<div id="div1">
+		<span id="span1">分享到</span>
+	</div>
+</body>
+<script>
+
+// span 可以 div也可以
+
+window.onload = function () {
+	var oDiv = document.getElementById('div1');
+	oDiv.onmouseover = function () {
+		startMove(0);
+	};
+	oDiv.onmouseout = function () {
+		startMove(-100);
+	};
+};
+
+var timer = null;
+
+function startMove(iTarget) {
+	
+	var oDiv = document.getElementById('div1');
+
+	clearInterval(timer);
+	timer = setInterval(function () {
+
+		var iSpeed = 0;
+
+		if(iTarget>oDiv.offsetLeft) {
+			iSpeed = 10;
+		} else {
+			iSpeed = -10;
+		}
+
+		if(oDiv.offsetLeft == iTarget) {
+			clearInterval(timer);
+		}else{
+		oDiv.style.left = oDiv.offsetLeft+iSpeed+'px';
+		}
+	},30);
+}
+</script>
+</html>

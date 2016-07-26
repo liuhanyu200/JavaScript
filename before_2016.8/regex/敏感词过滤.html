@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	过滤前<textarea name="" id="txt1" cols="30" rows="10"></textarea>
+	<input type="button" id="btn1">
+	过滤后<textarea name="" id="txt2" cols="30" rows="10"></textarea>
+</body>
+<script>
+window.onload = function () {
+
+	var oBtn = document.getElementById('btn1');
+	var oTxt1 = document.getElementById('txt1');
+	var oTxt2 = document.getElementById('txt2');
+	// var str = oTxt1.value;
+
+	oBtn.onclick = function () {
+		// | 或
+		var re = /我们| |LOL|SB|英雄联盟|QQ|腾讯/ig;
+		oTxt2.value = oTxt1.value.replace(re,'***');
+		console.log(oTxt1.value);
+		console.log(oTxt2.value);
+	};
+};
+</script>
+</html>

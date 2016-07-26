@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>888<strong>111</strong></li>
+		<li>222</li>
+		<li>333</li>
+		<li>333</li>
+	</ul>
+</body>
+<script>
+	window.onload = function () {
+
+		var oUl = document.getElementById('ul1');
+
+		// 兼容版本的childNodes --- 第一层的子节点
+		alert(oUl.children.length);
+
+		for (i=0;i<oUl.childNodes.length;i++) {
+			// 兼容火狐谷歌
+			if(oUl.childNodes[i].nodeType == 1) {
+				oUl.childNodes[i].style.background = 'red';
+			}
+		}
+	}
+</script>
+</html>

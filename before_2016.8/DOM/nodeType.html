@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>888<strong>111</strong></li>
+		<li>222</li>
+		<li>333</li>
+		<li>333</li>
+	</ul>
+</body>
+<script>
+	window.onload = function () {
+
+		var oUl = document.getElementById('ul1');
+		for (i=0;i<oUl.childNodes.length;i++) {
+
+			// childNodes == 1 
+			// 说明这个节点是子节点（兼容火狐谷歌）
+			if(oUl.childNodes[i].nodeType == 1) {
+				oUl.childNodes[i].style.background = 'red';
+			}
+		}
+	}
+</script>
+</html>

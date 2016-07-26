@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li> <strong>111</strong> </li>
+		<li>222</li>
+		<li>333</li>
+		<li>333</li>
+	</ul>
+</body>
+<script>
+	window.onload = function () {
+		// body...
+		var oUl = document.getElementById('ul1');
+		// 只兼容ie 因为火狐谷歌显示子节点不对
+		// oUl.childNodes[0].style.background = 'blue';
+		 
+		// ie显示正常 火狐显示不对
+		alert('ul标签有'+oUl.childNodes.length+'个子节点');
+	}
+</script>
+</html>

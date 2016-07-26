@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ctrl+回车---提交留言</title>
+</head>
+<body>
+	<textarea name="" id="txt1" cols="40" rows="10"></textarea>
+	<input type="text" id="txt2" >
+	<input type="button" id="btn1" value="留言">
+</body>
+<script>
+	window.onload = function () {
+		var oBtn = document.getElementById('btn1');
+		var oTxt1 = document.getElementById('txt1');
+		var oTxt2 = document.getElementById('txt2');
+
+		oBtn.onclick = function () {
+			// console.log(oTxt2.value.length);
+			if(oTxt2.value.length != 0) {
+				oTxt1.value += oTxt2.value+'\n';
+				oTxt2.value = '';
+			}else{
+				// oBtn.onclick = function () {
+				 // alert('请先输入留言：');
+				// }
+			}
+		};
+
+		oTxt2.onkeydown = function (ev) {
+			var oEvent = ev||event;
+
+			// ctrl + 回车提交
+			if(oEvent.keyCode == 13 && oEvent.ctrlKey && oTxt2.value.length != 0) {
+				oTxt1.value += oTxt2.value+'\n';
+				oTxt2.value = '';				
+			}
+		};
+
+	};
+</script>
+</html>

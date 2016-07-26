@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event---2</title>
+</head>
+<body>
+<script>
+/**
+ *  || 或 如果一真一假，返回值为真
+ */
+	var a = 12||false;
+	console.log(a); // 12
+	var b = 0||'abc';
+	console.log(b); // abc
+	
+// 获取当前鼠标坐标值
+	document.onclick = function (ev) {
+		var oEvent = ev||event;
+		document.title = oEvent.clientX+','+oEvent.clientY;
+	};
+</script>	
+</body>
+</html>

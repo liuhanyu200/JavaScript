@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="btn1" value="关闭窗口"/>
+<script>
+window.onload = function () {
+    var oBtn = document.getElementById('btn1');
+    oBtn.onclick = function () {
+        // 火狐不兼容
+        window.close();
+    }
+}
+</script>
+</body>
+</html>
